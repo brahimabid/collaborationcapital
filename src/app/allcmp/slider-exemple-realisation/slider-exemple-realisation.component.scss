@@ -1,0 +1,39 @@
+@import "src/style/global.scss";
+@media screen and (max-width:1164px){
+   
+    .tit{
+        color:white;
+        margin-left:30%;
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:500px){
+  
+    
+    .tit{
+        color:white;
+        margin-left:5%;
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+@media (min-width:1164px){
+   
+    .tit{
+        color:white;
+        margin-left:35%;
+        margin-top: 30px;
+        text-align: center;
+    }
+  
+}
+
+.row ::ng-deep .owl-carousel .owl-stage-outer  owl-stage .owl-item{
+    width:200px!important
+}
+.row{
+    margin-right: 0px; 
+ margin-left: 0px;
+}

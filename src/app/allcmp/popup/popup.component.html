@@ -1,0 +1,92 @@
+<h2>Indiquez vos coordonnées,
+    vous recevrez l'accès  à Votre compte
+    et pourrez lancer Votre recherche!</h2>
+<form [formGroup]="formRecherche">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="username">Nom*</label>
+                <input type="text" formControlName="nom" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f.nom.errors ,'is-valid': submitted && !f.nom.errors}" />
+                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                    <div *ngIf="f.nom.errors.required">vore nom est obligatoire</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+
+                <label for="nom">Prénom* </label>
+                <input id="nom" formControlName="prenom" class="form-control" type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f.prenom.errors ,'is-valid': submitted && !f.prenom.errors}">
+                <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                    <div *ngIf="f.prenom.errors.required">Votre prénom est obligatoire</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+
+                <label for="nom">Email* </label>
+                <input id="nom" #nom formControlName="email" class="form-control" type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors || submitted && isEmailPro() ,'is-valid': submitted && !f.email.errors &&!isEmailPro()}">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Votre email est obligatoire</div>
+                    <div *ngIf="f.email.errors.email">Votre email est invalide</div>
+
+                    
+                </div>
+                <h5  *ngIf="submitted && isEmailPro()"><span class="invalidemail">Erreur :</span> email professionnel  requis</h5>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="nom">Téléphone* </label>
+                <input id="nom" formControlName="tel" class="form-control" type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f.tel.errors,'is-valid': submitted && !f.tel.errors }">
+                <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+                    <div *ngIf="f.tel.errors.required">Votre Téléphone est obligatoire</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="nom">Entreprise* </label>
+                <input id="nom" formControlName="entreprise" class="form-control" type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f.entreprise.errors ,'is-valid': submitted && !f.entreprise.errors}">
+                <div *ngIf="submitted && f.entreprise.errors" class="invalid-feedback">
+                    <div *ngIf="f.entreprise.errors.required">Votre entreprise est obligatoire</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="nom">Votre recherche* </label>
+                <textarea id="nom" formControlName="recherche" class="form-control" type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f.recherche.errors ,'is-valid': submitted && !f.recherche.errors }"></textarea>
+                <div *ngIf="submitted && f.recherche.errors" class="invalid-feedback">
+                    <div *ngIf="f.recherche.errors.required">Votre recherche est obligatoire</div>
+                </div>
+
+            </div>
+        </div>
+        <h5>* Champs obligatoire</h5>
+    </div>
+
+
+
+</form>
+<div class="row action">
+    <div class="col">
+        <button class="btn btn-link" mat-dialog-close="false">Annuler</button>
+    </div>
+    <div class="col">
+        <button class="btn btn-primary" (click)="rechercher()">Valider</button>
+    </div>
+</div>
